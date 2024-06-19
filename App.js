@@ -6,7 +6,7 @@ export default function App() {
     return (
         <View style={styles.container}>
             <StatusBar style="auto" />
-            test2
+            test3
             <Home />
         </View>
     );
