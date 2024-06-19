@@ -14,6 +14,7 @@ const Home = () => {
     return (
         <View style={styles.container}>
             <Header />
+            test4
             <View style={{ flex: fullView }}>
                 {fullView === 1 ? <TopSection /> : null}
             </View>
