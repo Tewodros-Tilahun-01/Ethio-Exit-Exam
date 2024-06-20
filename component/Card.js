@@ -1,8 +1,12 @@
 import React from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
-const Card = ({ name }) => {
+const Card = ({ name, navigation }) => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress={() => {
+                navigation.navigate("QuestionListScreen", { name: name });
+            }}
+        >
             <View style={styles.button}>
                 <View>
                     <Image source={require("../assets/favicon.png")} />

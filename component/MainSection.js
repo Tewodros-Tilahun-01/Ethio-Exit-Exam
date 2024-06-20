@@ -17,7 +17,7 @@ let title = [
     { name: "Math" },
     { name: "Physics" },
 ];
-const MainSection = ({ fullscreenChange }) => {
+const MainSection = ({ fullscreenChange, navigation }) => {
     return (
         <View style={{ paddingTop: 30, paddingHorizontal: 20 }}>
             <View
@@ -36,7 +36,9 @@ const MainSection = ({ fullscreenChange }) => {
                 <MasonryFlashList
                     data={title}
                     numColumns={2}
-                    renderItem={({ item }) => <Card name={item.name}></Card>}
+                    renderItem={({ item }) => (
+                        <Card name={item.name} navigation={navigation}></Card>
+                    )}
                     estimatedItemSize={200}
                 ></MasonryFlashList>
             </View>
@@ -56,7 +58,7 @@ const styles = StyleSheet.create({
         width: "100%",
         height: "100%",
         paddingTop: 10,
-        paddingBottom: 60,
+        paddingBottom: 50,
     },
     button: {
         backgroundColor: "#fff",
