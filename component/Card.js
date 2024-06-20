@@ -4,7 +4,9 @@ const Card = ({ name, navigation }) => {
     return (
         <TouchableOpacity
             onPress={() => {
-                navigation.navigate("QuestionListScreen", { name: name });
+                navigation.navigate("QuestionListScreen", {
+                    name: name,
+                });
             }}
         >
             <View style={styles.button}>

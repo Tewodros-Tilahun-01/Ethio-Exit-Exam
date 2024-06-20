@@ -1,7 +1,7 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
 import HomeScreen from "../screen/HomeScreen";
 import QuestionListScreen from "../screen/QuestionListScreen";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 const Stack = createNativeStackNavigator();
 
 function HomeStack() {
@@ -21,6 +21,7 @@ function HomeStack() {
                 options={{
                     headerStyle: { backgroundColor: "#eee7db" },
                     headerTintColor: "#000",
+                    title: "Question",
                 }}
             />
         </Stack.Navigator>

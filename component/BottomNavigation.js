@@ -22,6 +22,7 @@ function BottomNavigation() {
                         component={HomeStack}
                         options={{
                             header: () => null,
+                            title: "Home",
                         }}
                     />
                     <Tab.Screen
