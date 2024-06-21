@@ -2,9 +2,11 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TouchableOpacity } from "react-native";
 
-const QuestionCard = ({ title, image, description }) => {
+const QuestionCard = ({ title, image, description, navigation }) => {
     return (
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress={() => navigation.navigate("QuizScreen", { title: title })}
+        >
             <View style={styles.QuestionCard}>
                 <View style={styles.textContainer}>
                     <Image source={{ uri: image }} style={styles.image} />

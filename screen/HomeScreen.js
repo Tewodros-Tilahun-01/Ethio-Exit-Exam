@@ -14,7 +14,13 @@ const HomeScreen = ({ navigation }) => {
             <View style={{ flex: fullView }}>
                 {fullView === 1 ? <TopSection /> : null}
             </View>
-            <View style={styles.mainSection}>
+
+            <View
+                style={[
+                    styles.mainSection,
+                    { borderTopLeftRadius: fullView ? 50 : 0 },
+                ]}
+            >
                 <MainSection
                     fullscreenChange={fullscreenChange}
                     navigation={navigation}
@@ -30,7 +36,6 @@ const styles = StyleSheet.create({
     },
     mainSection: {
         flex: 2,
-        borderTopLeftRadius: 50,
         backgroundColor: "#eee7db",
     },
 });

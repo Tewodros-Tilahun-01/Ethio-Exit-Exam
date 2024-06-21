@@ -1,11 +1,29 @@
 import React from "react";
 import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 const Card = ({ name, navigation }) => {
+    list = [
+        {
+            title: "2014",
+            image: "https://www.example.com/landscape.jpg",
+            description: "A beautiful landscape with mountains and a river.",
+        },
+        {
+            title: "2014",
+            image: "https://www.example.com/landscape.jpg",
+            description: "A beautiful landscape with mountains and a river.",
+        },
+        {
+            title: "2014",
+            image: "https://www.example.com/landscape.jpg",
+            description: "A beautiful landscape with mountains and a river.",
+        },
+    ];
     return (
         <TouchableOpacity
             onPress={() => {
                 navigation.navigate("QuestionListScreen", {
                     name: name,
+                    list: list,
                 });
             }}
         >

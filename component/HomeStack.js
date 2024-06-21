@@ -1,6 +1,7 @@
 import HomeScreen from "../screen/HomeScreen";
 import QuestionListScreen from "../screen/QuestionListScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import QuizScreen from "../screen/QuizScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +19,15 @@ function HomeStack() {
             <Stack.Screen
                 name="QuestionListScreen"
                 component={QuestionListScreen}
+                options={{
+                    headerStyle: { backgroundColor: "#eee7db" },
+                    headerTintColor: "#000",
+                    title: "Question",
+                }}
+            />
+            <Stack.Screen
+                name="QuizScreen"
+                component={QuizScreen}
                 options={{
                     headerStyle: { backgroundColor: "#eee7db" },
                     headerTintColor: "#000",
