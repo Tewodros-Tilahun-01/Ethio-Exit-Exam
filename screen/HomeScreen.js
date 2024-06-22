@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "#33324b",
+        backgroundColor: "#000",
     },
     mainSection: {
         flex: 2,
