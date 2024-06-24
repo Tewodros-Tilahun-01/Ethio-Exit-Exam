@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
-function ChooseCard({ item, Select, show, setSelect, index, answer }) {
+function ChooseCard({ item, Select, show, onselect, index, answer }) {
   return (
     <TouchableOpacity
       style={[
@@ -13,7 +13,7 @@ function ChooseCard({ item, Select, show, setSelect, index, answer }) {
         show && (answer == index ? styles.correctOptionButton : null),
       ]}
       onPress={() => {
-        setSelect(index);
+        onselect(index);
       }}
     >
       <View style={styles.optionCircle}>
@@ -34,50 +34,17 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     padding: 20,
-    backgroundColor: "#000",
-  },
-  header: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 20,
+    backgroundColor: "#fff",
   },
 
-  questionNumber: {
-    color: "#fff",
-    fontSize: 16,
-  },
-  timer: {
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  timerText: {
-    color: "#fff",
-    fontSize: 24,
-    backgroundColor: "#1e1e1e",
-    padding: 10,
-    borderRadius: 20,
-    width: 50,
-    textAlign: "center",
-  },
-  questionContainer: {
-    backgroundColor: "#2a2e3f",
-    padding: 20,
-    borderRadius: 10,
-    marginBottom: 20,
-  },
-  questionText: {
-    color: "#fff",
-    fontSize: 18,
-    textAlign: "center",
-  },
   optionButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#1e1e1e",
+    backgroundColor: "#f1eeeb",
     padding: 15,
     borderRadius: 10,
     marginBottom: 10,
+    elevation: 2,
   },
   correctOptionButton: {
     borderColor: "#00ff00",
@@ -103,13 +70,11 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   selectedCircleColor: {
-    backgroundColor: "blue",
+    backgroundColor: "#000",
   },
-  incorrectCircle: {
-    backgroundColor: "#ff0000",
-  },
+
   optionText: {
-    color: "#fff",
+    color: "#000",
     fontSize: 16,
   },
 });
