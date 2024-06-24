@@ -1,10 +1,16 @@
 // components/Card.js
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Pressable,
+} from "react-native";
 
-const YearList = ({ title, navigation, questionList }) => {
+const YearList = ({ title, navigation, questionList, courses }) => {
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() =>
         navigation.navigate("QuestionScreen", {
           questionList: questionList,
@@ -13,46 +19,49 @@ const YearList = ({ title, navigation, questionList }) => {
     >
       <View style={styles.YearList}>
         <View style={styles.textContainer}>
-          <Text style={styles.title}>{title}</Text>
-          <Text style={styles.description}>
-            "A beautiful landscape with mountains and a river."
-          </Text>
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.description}>{courses}</Text>
+          </View>
+          <Text style={styles.icon}>&gt;</Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   YearList: {
-    backgroundColor: "#1e1e1e",
+    backgroundColor: "#fff",
     borderRadius: 10,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    elevation: 1,
-    margin: 5,
+    elevation: 2,
+    margin: 7,
     overflow: "hidden",
-    paddingVertical: 10,
-    marginTop: 8,
+    paddingVertical: 7,
   },
-  image: {
-    width: 30,
-    height: 30,
+  icon: {
+    fontSize: 30,
+    color: "#000",
+    flex: 1,
+  },
+  descriptionContainer: {
+    flex: 17,
   },
   textContainer: {
     padding: 10,
+    flexDirection: "row",
+    alignItems: "center",
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#fff",
+    color: "#000",
     marginBottom: 5,
   },
   description: {
     fontSize: 14,
-    color: "#fff",
+    color: "#000",
   },
 });
 

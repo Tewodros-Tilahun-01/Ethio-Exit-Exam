@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BottomNavigation from "./component/BottomNavigation";
 
+import writeData from "./writeData";
+import readData from "./readData";
+
 export default function App() {
-    return <BottomNavigation />;
+  useEffect(() => {
+    // writeData();
+    // readData();
+  }, []);
+
+  return <BottomNavigation />;
 }

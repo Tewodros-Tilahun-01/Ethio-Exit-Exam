@@ -2,10 +2,11 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileStack from "./ProfileStack";
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons } from "@expo/vector-icons";
 import HomeStack from "./HomeStack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
+import { Text, Button, View } from "react-native";
 
 const Tab = createBottomTabNavigator();
 const option = {
@@ -18,7 +19,7 @@ function BottomNavigation() {
     <SafeAreaProvider>
       <StatusBar barStyle="dark-content" backgroundColor="#eee7db" />
       <NavigationContainer>
-        <Tab.Navigator >
+        <Tab.Navigator>
           <Tab.Screen
             name="HomeStack"
             component={HomeStack}
@@ -40,7 +41,7 @@ function BottomNavigation() {
           <Tab.Screen
             name="Setting"
             component={ProfileStack}
-            options={{   header: () => null,}}
+            options={{ header: () => null }}
           />
         </Tab.Navigator>
       </NavigationContainer>

@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import ChooseCard from "./ChooseCard";
 
-const QuestionComponent = ({ question, answer, op }) => {
+const QuestionComponent = ({
+  question,
+  answer,
+  op,
+  questionNumber,
+  updateResult,
+}) => {
   const [Select, setSelect] = useState(null);
   const [show, setShow] = useState(false);
   const [qAnswer, setQAnswer] = useState(answer);
@@ -17,14 +23,20 @@ const QuestionComponent = ({ question, answer, op }) => {
       setQAnswer(4);
     }
   }, []);
-  function showAnswer() {
-    setShow(true);
-  }
 
+  function showAnswer() {
+    !show && setShow(true);
+    !show && updateResult(setSelect == qAnswer);
+  }
+  function onselect(index) {
+    !show && setSelect(index);
+  }
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.questionNumber}>1 </Text>
+        <View style={styles.questionNumberContainer}>
+          <Text style={styles.questionNumber}>{questionNumber + 1}</Text>
+        </View>
       </View>
       <View style={styles.questionContainer}>
         <Text style={styles.questionText}>{question}</Text>
@@ -36,19 +48,14 @@ const QuestionComponent = ({ question, answer, op }) => {
             item={item}
             show={show}
             Select={Select}
-            setSelect={setSelect}
+            onselect={onselect}
             index={index}
             answer={qAnswer}
           />
         ))}
       </View>
 
-      <TouchableOpacity
-        style={styles.nextButton}
-        onPress={() => {
-          showAnswer();
-        }}
-      >
+      <TouchableOpacity style={styles.nextButton} onPress={showAnswer}>
         <Text style={styles.nextButtonText}>show answer</Text>
       </TouchableOpacity>
     </View>
@@ -57,31 +64,40 @@ const QuestionComponent = ({ question, answer, op }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#000",
-    marginBottom: 20,
+    backgroundColor: "#fff",
+    marginBottom: 50,
   },
   header: {
-    flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
+    justifyContent: "center",
+
     marginBottom: 20,
   },
 
-  questionNumber: {
-    color: "#fff",
-    fontSize: 16,
-  },
+  questionNumberContainer: {
+    backgroundColor: "#000",
 
+    borderRadius: 30,
+    borderWidth: 4,
+    borderColor: "#00bfff",
+    width: 60,
+    height: 60,
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: -47,
+  },
+  questionNumber: { color: "#fff", fontSize: 28 },
   questionContainer: {
-    backgroundColor: "#2a2e3f",
-    padding: 20,
+    backgroundColor: "#455e50",
+    paddingVertical: 50,
+    paddingHorizontal: 10,
     borderRadius: 10,
     marginBottom: 20,
+    zIndex: -1,
   },
   questionText: {
     color: "#fff",
     fontSize: 18,
-    textAlign: "center",
   },
 
   nextButton: {

@@ -8,6 +8,7 @@ import EditProfileText from "../component/EditProfileText";
 
 
 
+
 const acountItem = [
   { title: <EditProfileText/>,icon:<ProfilePicture/>,component:"Profile"},
   { title: "Change Password", icon: "🔐",component:"ChangePasswordScreen"},
@@ -39,5 +40,6 @@ export default function SettingsScreen() {
       <Item Items={InformationItem} actions={actions} title={"Info"} />
       <Item Items={Actions} actions={actions} title={"Action"} />
     </ScrollView>
+
   );
 }

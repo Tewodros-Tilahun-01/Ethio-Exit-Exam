@@ -1,12 +1,20 @@
 import React from "react";
-import { View, Image, Text, TouchableOpacity, StyleSheet } from "react-native";
-const Card = ({ name, navigation, questionCollectionList }) => {
+import {
+  View,
+  Image,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Pressable,
+} from "react-native";
+const Card = ({ name, navigation, questionCollectionList, courses }) => {
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() => {
         navigation.navigate("YearListScreen", {
           name: name,
           questionCollectionList: questionCollectionList,
+          courses: courses,
         });
       }}
     >
@@ -18,7 +26,7 @@ const Card = ({ name, navigation, questionCollectionList }) => {
           <Text>{name}</Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 const styles = StyleSheet.create({
@@ -26,11 +34,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
     width: 160,
     height: 160,
-    backgroundColor: "#f8f6f2",
+    backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
     margin: 8,
     borderRadius: 16,
+    elevation: 3,
   },
 });
 export default Card;
