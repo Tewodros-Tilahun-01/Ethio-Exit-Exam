@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Linking,
-  Alert,
-} from "react-native";
+import { View, Text, StyleSheet, Button, Linking, Alert } from "react-native";
 
 const SupportUsScreen = () => {
   const handleContactUs = () => {
@@ -15,19 +8,15 @@ const SupportUsScreen = () => {
 
   const handleFollowUs = (platform) => {
     let url;
-    let emoji;
     switch (platform) {
       case "facebook":
         url = "https://www.facebook.com/yourpage";
-        emoji = "👍";
         break;
       case "twitter":
         url = "https://www.twitter.com/yourprofile";
-        emoji = "🐦";
         break;
       case "instagram":
         url = "https://www.instagram.com/yourprofile";
-        emoji = "📸";
         break;
       default:
         return;
@@ -35,7 +24,6 @@ const SupportUsScreen = () => {
     Linking.openURL(url).catch((err) =>
       console.error("Couldn't load page", err)
     );
-    return emoji;
   };
 
   const handleDonate = () => {
@@ -50,24 +38,16 @@ const SupportUsScreen = () => {
       <Text style={styles.description}>
         Thank you for using our app! You can support us in the following ways:
       </Text>
-      <TouchableOpacity style={styles.button} onPress={handleDonate}>
-        <Text style={styles.buttonText}>💰 Donate</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
+      <Button title="Donate" onPress={() => handleDonate()} />
+      <Button
+        title="Follow us on Twitter"
         onPress={() => handleFollowUs("twitter")}
-      >
-        <Text style={styles.buttonText}>🐦 Follow us on Twitter</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.button}
+      />
+      <Button
+        title="Like us on Facebook"
         onPress={() => handleFollowUs("facebook")}
-      >
-        <Text style={styles.buttonText}>👍 Like us on Facebook</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleContactUs}>
-        <Text style={styles.buttonText}>✉️ Contact Us</Text>
-      </TouchableOpacity>
+      />
+      <Button title="Contact Us" onPress={() => handleFollowUs("instagram")} />
     </View>
   );
 };
@@ -91,17 +71,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   button: {
-    backgroundColor: "#007BFF",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 5,
     marginVertical: 10,
-    alignItems: "center",
-    width: "80%",
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 18,
   },
 });
 

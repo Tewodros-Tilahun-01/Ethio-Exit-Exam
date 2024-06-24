@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     margin: 8,
     borderRadius: 16,
-    elevation: 3,
+    elevation: 4,
   },
 });
 export default Card;
