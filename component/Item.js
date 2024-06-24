@@ -2,25 +2,27 @@ import {
   StyleSheet,
   Text,
   View,
-  ScrollView,
+  
   TouchableOpacity,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
-const Item = ({ Items, handleNavigation }) => {
+const Item = ({ Items,  actions ,title }) => {
+
   const navigation = useNavigation();
-  console.log(Items);
+  // console.log(Items);
   return (
     <View>
-      {Items.map((option, index) => (
+      <Text style={styles.title}>{title}</Text>
+      {Items.map((item, index) => (
         <TouchableOpacity
           key={index}
           style={styles.optionContainer}
-          onPress={() => handleNavigation(option.title)}
+          onPress={() =>  actions(item.component,{ItemId:Math.random().toString()})}
         >
-          <Text style={styles.optionIcon}>{option.icon}</Text>
-          <Text style={styles.optionTitle}>{option.title}</Text>
+          <Text style={styles.optionIcon}>{item.icon}</Text>
+          <Text style={styles.optionTitle}>{item.title}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -34,7 +36,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F8F8F8",
   },
-
+  title:{
+fontSize:30,
+fontWeight:"bold"
+  }
+,
   optionContainer: {
     flexDirection: "row",
     alignItems: "center",

@@ -1,78 +1,43 @@
-// import { Text, View ,TouchableOpacity,ScrollView} from "react-native";
-// import React from "react";
-
-// function SettingsScreen({ navigation }) {
-//   navigationProfile = () => {
-//     console.log("Profile");
-//   }
-//   const acountItem=[
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//   ]
-//   const SuportItems=[
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//   ]
-
-//   const   actionItems=[
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//     {icon:"person-outline",text:"Profile",Action:navigationProfile},
-//   ]
-
-//   return (
-//     <>
-
-// <View>
-//   <Text>Acount</Text>
-// </View>
-
-//     </>
-//   );
-// }
-// export default SettingsScreen;
-
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView,Image } from "react-native";
 import React, { Component } from "react";
 import Item from "../component/Item";
-import { FlashList } from "@shopify/flash-list";
-const acountItem = [
-  { title: "Change Password", icon: "🔒" },
-  { title: "Notifications", icon: "🔔" },
-  { title: "Refer Friends & Businesses", icon: "🔗" },
-  { title: "Third Party Application", icon: "🔍" },
-  { title: "FAQ", icon: "❓" },
-  { title: "Contact us", icon: "📞" },
-  { title: "Terms & Conditions", icon: "📄" },
-  { title: "Logout", icon: "🚪" },
-];
-const InformationItem = [
-  { title: "Change Password", icon: "🔒" },
-  { title: "Notifications", icon: "🔔" },
-  { title: "Refer Friends & Businesses", icon: "🔗" },
-  { title: "Third Party Application", icon: "🔍" },
-  { title: "FAQ", icon: "❓" },
-  { title: "Contact us", icon: "📞" },
-  { title: "Terms & Conditions", icon: "📄" },
-  { title: "Logout", icon: "🚪" },
-];
-export default function SettingsScreen() {
-  const handleNavigation = (screen) => {
-    // Navigation logic, replace with actual navigation code
-    alert(`Navigate to ${screen}`);
-  };
+import { useNavigation } from "@react-navigation/native";
+import ProfilePicture from "../component/ProfilePicture";
+import EditProfileText from "../component/EditProfileText";
 
+
+
+
+const acountItem = [
+  { title: <EditProfileText/>,icon:<ProfilePicture/>,component:"Profile"},
+  { title: "Change Password", icon: "🔐",component:"ChangePasswordScreen"},
+  { title: "Notifications", icon: "🔔",component:"NotificationScreen" },
+  { title: "Support Us ", icon: "💸" ,component:"SupportUsScreen" },
+];
+
+const InformationItem = [
+  { title: "Help", icon: "🛠️", component:"HelpScreen"  },
+ 
+  { title: "Contact us", icon: "📞",component:"ContactUsScreen" },
+  { title: "Terms & Conditions", icon: "📄",component:"TermsAndConditionsScreen"},
+];
+
+const Actions = [
+  { title: "Theme", icon: "🎨",component: "ThemeScreen "},
+  { title: "Logout", icon: "🚪",component: "LogoutScreen"}
+];
+
+export default function SettingsScreen() {
+  const navigation = useNavigation();
+
+  const actions = (Action,{ItemId}) => {
+    navigation.navigate(Action);
+  };
   return (
     <ScrollView>
-      <Text>Settings</Text>
-      <Item Items={acountItem} handleNavigation={handleNavigation} />
-      <Item Items={InformationItem} handleNavigation={handleNavigation} />
-      
+      <Item Items={acountItem} actions={actions} title={"Acount"} />
+      <Item Items={InformationItem} actions={actions} title={"Info"} />
+      <Item Items={Actions} actions={actions} title={"Action"} />
     </ScrollView>
   );
 }
