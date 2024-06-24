@@ -4,19 +4,20 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MasonryFlashList } from "@shopify/flash-list";
 import Card from "./Card";
 
-// import modal from "../datamodel";
+import datamodel from "../datamodel";
 import readData from "../readData";
 
 const MainSection = ({ fullscreenChange, navigation }) => {
-  const [modal, setModal] = useState(null);
-  useEffect(() => {
-    const mm = async () => {
-      res = await readData();
-      setModal(res);
-    };
-    mm();
-  }, []);
-
+  const [firebasemodal, setFirebaseModal] = useState(null);
+  // useEffect(() => {
+  //   const mm = async () => {
+  //     res = await readData();
+  //     setModal(res);
+  //   };
+  //   mm();
+  // }, []);
+  console.log(firebasemodal);
+  let modal = firebasemodal || datamodel;
   return (
     <View style={{ paddingTop: 30, paddingHorizontal: 20 }}>
       <View

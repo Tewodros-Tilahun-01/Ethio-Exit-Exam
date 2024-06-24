@@ -12,12 +12,13 @@ const Tab = createBottomTabNavigator();
 const option = {
   headerStyle: { backgroundColor: "#eee7db" },
   headerTintColor: "#000",
+  header: () => null,
 };
 
 function BottomNavigation() {
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="dark-content" backgroundColor="#eee7db" />
+      <StatusBar barStyle="light-content" backgroundColor="#5A639C" />
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen
@@ -32,16 +33,6 @@ function BottomNavigation() {
             name="Settings"
             component={ProfileStack}
             options={option}
-          />
-          <Tab.Screen
-            name="something"
-            component={ProfileStack}
-            options={option}
-          />
-          <Tab.Screen
-            name="Setting"
-            component={ProfileStack}
-            options={{ header: () => null }}
           />
         </Tab.Navigator>
       </NavigationContainer>
