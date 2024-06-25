@@ -1,6 +1,6 @@
 import React from "react";
 import SettingsScreen from "../screen/SettingsScreen";
-import Profile from "../screen/profile";
+
 import ChangePasswordScreen from "../screen/ChangePasswordScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import NotificationScreen from "../screen/NotificationScreen";
@@ -24,15 +24,7 @@ export default function ProfileStack() {
           title: "Settings",
         }}
       />
-      <Stack.Screen
-        name="Profile"
-        component={Profile}
-        options={{
-          headerStyle: { backgroundColor: "#5A639C" },
-          headerTintColor: "#fff",
-          title: "Profile",
-        }}
-      />
+     
       <Stack.Screen
         name="ChangePasswordScreen"
         component={ChangePasswordScreen}

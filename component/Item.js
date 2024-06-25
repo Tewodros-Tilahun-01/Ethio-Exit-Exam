@@ -46,7 +46,7 @@ fontWeight:"bold"
     alignItems: "center",
     paddingVertical: 15,
     paddingHorizontal: 20,
-    borderBottomWidth: 1,
+    borderBottomWidth: 4,
     borderBottomColor: "#EDEDED",
   },
   optionIcon: {

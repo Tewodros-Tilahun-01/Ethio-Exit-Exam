@@ -1,16 +1,14 @@
-import { View, Text, ScrollView,Image } from "react-native";
-import React, { Component } from "react";
+import { View,StyleSheet } from "react-native";
+
 import Item from "../component/Item";
 import { useNavigation } from "@react-navigation/native";
-import ProfilePicture from "../component/ProfilePicture";
-import EditProfileText from "../component/EditProfileText";
+
 
 
 
 
 
 const acountItem = [
-  { title: <EditProfileText/>,icon:<ProfilePicture/>,component:"Profile"},
   { title: "Change Password", icon: "🔐",component:"ChangePasswordScreen"},
   { title: "Notifications", icon: "🔔",component:"NotificationScreen" },
   { title: "Support Us ", icon: "💸" ,component:"SupportUsScreen" },
@@ -35,11 +33,22 @@ export default function SettingsScreen() {
     navigation.navigate(Action);
   };
   return (
-    <ScrollView>
+    <View  style={styles.container}>
       <Item Items={acountItem} actions={actions} title={"Acount"} />
       <Item Items={InformationItem} actions={actions} title={"Info"} />
       <Item Items={Actions} actions={actions} title={"Action"} />
-    </ScrollView>
+    </View>
 
   );
 }
+
+
+
+
+const styles = StyleSheet.create({
+
+  container:{
+    paddingVertical:25,
+    paddingHorizontal:10
+  }
+})
