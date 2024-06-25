@@ -9,15 +9,15 @@ import readData from "../readData";
 
 const MainSection = ({ fullscreenChange, navigation }) => {
   const [firebasemodal, setFirebaseModal] = useState(null);
-  // useEffect(() => {
-  //   const mm = async () => {
-  //     res = await readData();
-  //     setModal(res);
-  //   };
-  //   mm();
-  // }, []);
+  useEffect(() => {
+    const mm = async () => {
+      res = await readData();
+      setFirebaseModal(res);
+    };
+    mm();
+  }, []);
   console.log(firebasemodal);
-  let modal = firebasemodal || datamodel;
+  let modal = firebasemodal;
   return (
     <View style={{ paddingTop: 30, paddingHorizontal: 20 }}>
       <View
