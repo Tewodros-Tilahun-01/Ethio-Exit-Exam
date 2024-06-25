@@ -6,9 +6,7 @@ export default async function readData() {
     const docRef = collection(db, "questionCollection");
     const querySnapshot = await getDocs(docRef);
     const list = [];
-    // if (await querySnapshot.empty()) {
-    //   return null;
-    // }
+
     querySnapshot.forEach((doc) => {
       list.push(doc.data());
     });

@@ -13,20 +13,20 @@ const QuestionComponent = ({
   const [show, setShow] = useState(false);
   const [qAnswer, setQAnswer] = useState(answer);
   useEffect(() => {
-    if ((answer = "A")) {
+    if (answer == "A") {
+      setQAnswer(0);
+    } else if (answer == "B") {
       setQAnswer(1);
-    } else if ((answer = "B")) {
+    } else if (answer == "C") {
       setQAnswer(2);
-    } else if ((answer = "C")) {
+    } else if (answer == "D") {
       setQAnswer(3);
-    } else if ((answer = "D")) {
-      setQAnswer(4);
     }
   }, []);
 
   function showAnswer() {
     !show && setShow(true);
-    !show && updateResult(setSelect == qAnswer);
+    !show && updateResult(Select == qAnswer);
   }
   function onselect(index) {
     !show && setSelect(index);
