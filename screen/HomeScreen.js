@@ -11,9 +11,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={{ flex: fullView }}>
-        {fullView === 1 ? <TopSection /> : null}
-      </View>
+      <View style={{ flex: fullView }}>{fullView === 1 && <TopSection />}</View>
 
       <View
         style={[styles.mainSection, { borderTopLeftRadius: fullView ? 50 : 0 }]}
@@ -33,7 +31,7 @@ const styles = StyleSheet.create({
   },
   mainSection: {
     flex: 2,
-    backgroundColor: "#f1eeeb",
+    backgroundColor: "#fff",
   },
 });
 export default HomeScreen;

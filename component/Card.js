@@ -32,8 +32,8 @@ const Card = ({ name, navigation, questionCollectionList, courses }) => {
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    width: 160,
-    height: 160,
+    width: 158,
+    height: 158,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",

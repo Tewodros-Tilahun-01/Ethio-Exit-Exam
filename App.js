@@ -3,6 +3,7 @@ import BottomNavigation from "./component/BottomNavigation";
 
 import writeData from "./writeData";
 import readData from "./readData";
+import ThemeProvider from "./component/ThemeProvider";
 
 export default function App() {
   useEffect(() => {
@@ -10,5 +11,9 @@ export default function App() {
     // readData();
   }, []);
 
-  return <BottomNavigation />;
+  return (
+    <ThemeProvider>
+      <BottomNavigation />
+    </ThemeProvider>
+  );
 }

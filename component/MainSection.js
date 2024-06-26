@@ -9,23 +9,18 @@ import readData from "../readData";
 
 const MainSection = ({ fullscreenChange, navigation }) => {
   const [firebasemodal, setFirebaseModal] = useState(null);
-  useEffect(() => {
-    const mm = async () => {
-      res = await readData();
-      setFirebaseModal(res);
-    };
-    mm();
-  }, []);
+  // useEffect(() => {
+  //   const mm = async () => {
+  //     res = await readData();
+  //     setFirebaseModal(res);
+  //   };
+  //   mm();
+  // }, []);
   console.log(firebasemodal);
-  let modal = firebasemodal;
+  let modal = firebasemodal || datamodel;
   return (
-    <View style={{ paddingTop: 30, paddingHorizontal: 20 }}>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
+    <View style={styles.container}>
+      <View style={styles.header}>
         <Text>explore quizzes</Text>
         <TouchableOpacity onPress={fullscreenChange}>
           <Text style={styles.button}>VIEW ALL</Text>
@@ -33,7 +28,25 @@ const MainSection = ({ fullscreenChange, navigation }) => {
       </View>
 
       <View style={styles.listContainer}>
-        {!modal && <Text>no internet</Text>}
+        {!modal && (
+          <Text
+            style={{
+              position: "absolute",
+              bottom: 100,
+              right: 100,
+              left: 100,
+              backgroundColor: "red",
+              zIndex: 100,
+              padding: 10,
+              borderRadius: 10,
+              borderWidth: 0.3,
+              textAlign: "center",
+              color: "#fff",
+            }}
+          >
+            no internet
+          </Text>
+        )}
 
         <MasonryFlashList
           data={modal}
@@ -54,7 +67,14 @@ const MainSection = ({ fullscreenChange, navigation }) => {
 };
 const styles = StyleSheet.create({
   container: {
-    height: 100,
+    paddingTop: 30,
+    paddingHorizontal: 10,
+    height: "87%",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
   },
   title: {
     color: "white",
@@ -64,6 +84,7 @@ const styles = StyleSheet.create({
   listContainer: {
     width: "100%",
     height: "100%",
+
     paddingTop: 10,
     paddingBottom: 50,
   },
