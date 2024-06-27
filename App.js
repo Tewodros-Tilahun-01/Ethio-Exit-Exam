@@ -10,7 +10,6 @@ export default function App() {
     // writeData();
     // readData();
   }, []);
-  // console.log(theme);
   return (
     <ThemeProvider>
       <BottomNavigation />

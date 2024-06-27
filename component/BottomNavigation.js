@@ -12,20 +12,17 @@ import { ThemeContext } from "../component/ThemeProvider";
 const Tab = createBottomTabNavigator();
 
 function BottomNavigation() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
-  console.log(theme);
-  useEffect(() => {
-    // toggleTheme();
-  });
-  console.log(theme);
-
+  const { theme } = useContext(ThemeContext);
   return (
     <SafeAreaProvider>
-      <StatusBar barStyle="light-content" backgroundColor="#5A639C" />
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor={theme.backgroundColor1}
+      />
       <NavigationContainer>
         <Tab.Navigator screenOptions={styles.tabStyle}>
           <Tab.Screen
-            name="HomeStack"
+            name="Home "
             component={HomeStack}
             options={{
               header: () => null,

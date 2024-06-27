@@ -10,16 +10,20 @@ import ContactUsScreen from "../screen/ContactUsScreen";
 import TermsAndConditionsScreen from "../screen/TermsAndConditionsScreen";
 import ThemeScreen from "../screen/ThemeScreen";
 
-import LogoutScreen from "../screen/LogoutScreen";
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
+
 const Stack = createNativeStackNavigator();
 export default function ProfileStack() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Stack.Navigator initialRouteName="SettingsScreen">
       <Stack.Screen
-        name="Settings"
+        name="Setting"
         component={SettingsScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Settings",
         }}
@@ -29,7 +33,7 @@ export default function ProfileStack() {
         name="ChangePasswordScreen"
         component={ChangePasswordScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Change Password",
         }}
@@ -38,7 +42,7 @@ export default function ProfileStack() {
         name="NotificationScreen"
         component={NotificationScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Notifications",
         }}
@@ -47,7 +51,7 @@ export default function ProfileStack() {
         name="SupportUsScreen"
         component={SupportUsScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Support Us",
         }}
@@ -57,7 +61,7 @@ export default function ProfileStack() {
         component={HelpScreen}
         options={{
           title: "Help & Support",
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
         }}
       />
@@ -65,7 +69,7 @@ export default function ProfileStack() {
         name="ContactUsScreen"
         component={ContactUsScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Contact Us",
         }}
@@ -74,23 +78,17 @@ export default function ProfileStack() {
         name="TermsAndConditionsScreen"
         component={TermsAndConditionsScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Terms and Conditions",
         }}
       />
-      <Stack.Screen
-        name="LogoutScreen"
-        component={LogoutScreen}
-        options={{ title: "Logout" }}
-      />
-      {/* <Stack.Screen name="Login" component={LoginScreen} options={{ title: 'Login' }} /> */}
 
       <Stack.Screen
         name="ThemeScreen"
         component={ThemeScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Select Theme",
         }}

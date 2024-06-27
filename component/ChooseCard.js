@@ -1,10 +1,15 @@
 import React from "react";
 import { TouchableOpacity, View, Text, StyleSheet } from "react-native";
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
 function ChooseCard({ item, Select, show, onselect, index, answer }) {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <TouchableOpacity
       style={[
         styles.optionButton,
+        { backgroundColor: theme.backgroundColor4 },
         show &&
           Select == index &&
           (answer == index
@@ -16,7 +21,9 @@ function ChooseCard({ item, Select, show, onselect, index, answer }) {
         onselect(index);
       }}
     >
-      <View style={styles.optionCircle}>
+      <View
+        style={[styles.optionCircle, { borderColor: theme.backgroundColor1 }]}
+      >
         <View
           style={[
             styles.selectedCircle,
@@ -24,7 +31,9 @@ function ChooseCard({ item, Select, show, onselect, index, answer }) {
           ]}
         ></View>
       </View>
-      <Text style={styles.optionText}>{item}</Text>
+      <Text style={[styles.optionText, { color: theme.textColor }]}>
+        {item}
+      </Text>
     </TouchableOpacity>
   );
 }
@@ -70,7 +79,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   selectedCircleColor: {
-    backgroundColor: "#000",
+    backgroundColor: "blue",
   },
 
   optionText: {

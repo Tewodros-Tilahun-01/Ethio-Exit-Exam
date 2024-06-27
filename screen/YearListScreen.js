@@ -1,13 +1,19 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 import YearList from "../component/YearList";
 
 import { MasonryFlashList } from "@shopify/flash-list";
 
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
+
 function YearListScreen({ route, navigation }) {
+  const { theme } = useContext(ThemeContext);
   const { questionCollectionList, courses } = route.params;
 
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, { backgroundColor: theme.backgroundColor3 }]}
+    >
       <MasonryFlashList
         data={questionCollectionList}
         numColumns={1}

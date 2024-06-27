@@ -6,9 +6,12 @@ import Card from "./Card";
 
 import datamodel from "../datamodel";
 import readData from "../readData";
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
 
 const MainSection = ({ fullscreenChange, navigation }) => {
   const [firebasemodal, setFirebaseModal] = useState(null);
+  const { theme } = useContext(ThemeContext);
   // useEffect(() => {
   //   const mm = async () => {
   //     res = await readData();
@@ -21,7 +24,7 @@ const MainSection = ({ fullscreenChange, navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <Text>explore quizzes</Text>
+        <Text style={{ color: theme.textColor }}>explore quizzes</Text>
         <TouchableOpacity onPress={fullscreenChange}>
           <Text style={styles.button}>VIEW ALL</Text>
         </TouchableOpacity>
@@ -89,8 +92,9 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   button: {
-    backgroundColor: "#fff",
-    padding: 4,
+    backgroundColor: "#00bfff",
+    padding: 5,
+    borderRadius: 5,
   },
 });
 export default MainSection;

@@ -7,7 +7,7 @@ const ThemeScreen = () => {
 
   return (
     <View
-      style={[styles.container, { backgroundColor: theme.backgroundColor }]}
+      style={[styles.container, { backgroundColor: theme.backgroundColor3 }]}
     >
       <Text style={[styles.text, { color: theme.textColor }]}>
         Select Theme

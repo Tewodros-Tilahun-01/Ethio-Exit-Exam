@@ -5,9 +5,14 @@ import QuestionScreen from "../screen/QuestionScreen";
 import ScoreScreen from "../screen/ScoreScreen";
 import { View, Text } from "react-native";
 
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
+
 const Stack = createNativeStackNavigator();
 
 function HomeStack() {
+  const { theme } = useContext(ThemeContext);
+
   return (
     <Stack.Navigator>
       <Stack.Screen
@@ -17,7 +22,7 @@ function HomeStack() {
           header: () => (
             <View
               style={{
-                backgroundColor: "#5A639C",
+                backgroundColor: theme.backgroundColor1,
                 alignItems: "center",
                 paddingTop: 10,
               }}
@@ -38,7 +43,7 @@ function HomeStack() {
         name="YearListScreen"
         component={YearListScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "category",
         }}
@@ -47,7 +52,7 @@ function HomeStack() {
         name="QuestionScreen"
         component={QuestionScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Question",
         }}
@@ -56,7 +61,7 @@ function HomeStack() {
         name="ScoreScreen"
         component={ScoreScreen}
         options={{
-          headerStyle: { backgroundColor: "#5A639C" },
+          headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "score",
         }}

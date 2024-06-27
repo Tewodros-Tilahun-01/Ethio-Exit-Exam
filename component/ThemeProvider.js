@@ -2,14 +2,22 @@ import React, { createContext, useState } from "react";
 import { useColorScheme } from "react-native";
 
 const lightTheme = {
-  backgroundColor: "#ffffff",
+  backgroundColor1: "#5A639C",
+  backgroundColor2: "#ffffff",
+  backgroundColor3: "#ffffff",
+  backgroundColor4: "#f1eeeb",
+
   textColor: "#000000",
   buttonColor: "#1E90FF",
   buttonTextColor: "#ffffff",
 };
 
 const darkTheme = {
-  backgroundColor: "#000000",
+  backgroundColor1: "#323232",
+  backgroundColor2: "#212121",
+  backgroundColor3: "#323232",
+  backgroundColor4: "#212121",
+
   textColor: "#ffffff",
   buttonColor: "#1E90FF",
   buttonTextColor: "#000000",

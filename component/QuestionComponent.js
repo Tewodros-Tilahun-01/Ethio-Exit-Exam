@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import ChooseCard from "./ChooseCard";
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
 
 const QuestionComponent = ({
   question,
@@ -10,8 +12,11 @@ const QuestionComponent = ({
   updateResult,
 }) => {
   const [Select, setSelect] = useState(null);
+
   const [show, setShow] = useState(false);
   const [qAnswer, setQAnswer] = useState(answer);
+
+  const { theme } = useContext(ThemeContext);
   useEffect(() => {
     if (answer == "A") {
       setQAnswer(0);
@@ -32,7 +37,9 @@ const QuestionComponent = ({
     !show && setSelect(index);
   }
   return (
-    <View style={styles.container}>
+    <View
+      style={[styles.container, { backgroundColor: theme.backgroundColor3 }]}
+    >
       <View style={styles.header}>
         <View style={styles.questionNumberContainer}>
           <Text style={styles.questionNumber}>{questionNumber + 1}</Text>
