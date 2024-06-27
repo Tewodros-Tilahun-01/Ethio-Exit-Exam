@@ -1,12 +1,5 @@
 import React from "react";
-import {
-  View,
-  Image,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  Pressable,
-} from "react-native";
+import { View, Image, Text, StyleSheet, Pressable } from "react-native";
 const Card = ({ name, navigation, questionCollectionList, courses }) => {
   return (
     <Pressable

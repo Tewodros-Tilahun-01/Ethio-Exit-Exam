@@ -24,7 +24,7 @@ export default function ProfileStack() {
           title: "Settings",
         }}
       />
-     
+
       <Stack.Screen
         name="ChangePasswordScreen"
         component={ChangePasswordScreen}

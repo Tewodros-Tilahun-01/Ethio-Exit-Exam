@@ -3,7 +3,7 @@ import YearListScreen from "../screen/YearListScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import QuestionScreen from "../screen/QuestionScreen";
 import ScoreScreen from "../screen/ScoreScreen";
-import { View, Text, StatusBar } from "react-native";
+import { View, Text } from "react-native";
 
 const Stack = createNativeStackNavigator();
 

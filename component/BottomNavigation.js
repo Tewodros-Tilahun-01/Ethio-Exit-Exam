@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileStack from "./ProfileStack";
@@ -6,10 +6,19 @@ import HomeStack from "./HomeStack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "react-native";
 import { Image } from "react-native";
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
 
 const Tab = createBottomTabNavigator();
 
 function BottomNavigation() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+  console.log(theme);
+  useEffect(() => {
+    // toggleTheme();
+  });
+  console.log(theme);
+
   return (
     <SafeAreaProvider>
       <StatusBar barStyle="light-content" backgroundColor="#5A639C" />
@@ -20,7 +29,6 @@ function BottomNavigation() {
             component={HomeStack}
             options={{
               header: () => null,
-              title: "Home",
               tabBarIcon: () => {
                 return (
                   <Image
