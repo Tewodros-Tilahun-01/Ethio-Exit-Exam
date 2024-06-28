@@ -3,8 +3,6 @@ import { MasonryFlashList } from "@shopify/flash-list";
 
 import QuestionComponent from "../component/QuestionComponent";
 import {
-  Alert,
-  Button,
   ScrollView,
   StyleSheet,
   Text,
@@ -13,6 +11,7 @@ import {
 } from "react-native";
 import { useContext } from "react";
 import { ThemeContext } from "../component/ThemeProvider";
+import { count } from "firebase/firestore";
 function QuestionScreen({ route, navigation }) {
   const { theme } = useContext(ThemeContext);
   const { questionList } = route.params;
@@ -34,39 +33,43 @@ function QuestionScreen({ route, navigation }) {
     }
     result = newResult;
   }
-  function showResult() {
-    Alert.alert(
-      `total: ${result.count} right: ${result.right} wrong: ${result.wrong}`
-    );
-  }
+
   return (
-    <ScrollView>
-      <View
-        style={[styles.container, { backgroundColor: theme.backgroundColor3 }]}
-      >
-        <MasonryFlashList
-          data={questionList}
-          renderItem={({ item, index }) => (
-            <QuestionComponent
-              updateResult={updateResult}
-              questionNumber={index}
-              question={item.question}
-              op={[item.op1, item.op2, item.op3, item.op4]}
-              answer={item.answer}
-            />
-          )}
-          estimatedItemSize={200}
-        ></MasonryFlashList>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => {
-            navigation.navigate("ScoreScreen");
-          }}
+    <>
+      <ScrollView>
+        <View
+          style={[
+            styles.container,
+            { backgroundColor: theme.backgroundColor3 },
+          ]}
         >
-          <Text style={styles.text}>SHOW RESULT</Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
+          <MasonryFlashList
+            data={questionList}
+            renderItem={({ item, index }) => (
+              <QuestionComponent
+                updateResult={updateResult}
+                questionNumber={index}
+                question={item.question}
+                op={[item.op1, item.op2, item.op3, item.op4]}
+                answer={item.answer}
+              />
+            )}
+            estimatedItemSize={200}
+          ></MasonryFlashList>
+        </View>
+      </ScrollView>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => {
+          navigation.navigate("ScoreScreen", {
+            count: result.count,
+            right: result.right,
+          });
+        }}
+      >
+        <Text style={styles.text}>SHOW RESULT</Text>
+      </TouchableOpacity>
+    </>
   );
 }
 export default QuestionScreen;
@@ -81,8 +84,10 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 10,
     alignItems: "center",
-    marginTop: -20,
-    marginHorizontal: "20%",
+    position: "absolute",
+    top: 20,
+    right: 20,
+    elevation: 10,
   },
   text: {
     color: "#fff",

@@ -6,6 +6,8 @@ const lightTheme = {
   backgroundColor2: "#ffffff",
   backgroundColor3: "#ffffff",
   backgroundColor4: "#f1eeeb",
+  backgroundColor5: "#EDEAFF",
+  backgroundColor6: "#fff",
 
   textColor: "#000000",
   buttonColor: "#1E90FF",
@@ -14,9 +16,11 @@ const lightTheme = {
 
 const darkTheme = {
   backgroundColor1: "#323232",
-  backgroundColor2: "#212121",
+  backgroundColor2: "#35354c",
   backgroundColor3: "#323232",
   backgroundColor4: "#212121",
+  backgroundColor5: "#323232",
+  backgroundColor6: "#EDEAFF",
 
   textColor: "#ffffff",
   buttonColor: "#1E90FF",

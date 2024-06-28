@@ -61,8 +61,7 @@ function HomeStack() {
         name="ScoreScreen"
         component={ScoreScreen}
         options={{
-          headerStyle: { backgroundColor: theme.backgroundColor1 },
-          headerTintColor: "#fff",
+          header: () => null,
           title: "score",
         }}
       />
