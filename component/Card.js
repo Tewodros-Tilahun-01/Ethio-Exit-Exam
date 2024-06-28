@@ -1,6 +1,9 @@
 import React from "react";
 import { View, Image, Text, StyleSheet, Pressable } from "react-native";
+import { useContext } from "react";
+import { ThemeContext } from "../component/ThemeProvider";
 const Card = ({ name, navigation, questionCollectionList, courses }) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <Pressable
       onPress={() => {
@@ -11,7 +14,7 @@ const Card = ({ name, navigation, questionCollectionList, courses }) => {
         });
       }}
     >
-      <View style={styles.button}>
+      <View style={[styles.button]}>
         <View>
           <Image source={require("../assets/favicon.png")} />
         </View>
@@ -25,8 +28,8 @@ const Card = ({ name, navigation, questionCollectionList, courses }) => {
 const styles = StyleSheet.create({
   button: {
     alignItems: "center",
-    width: 158,
-    height: 158,
+    width: 155,
+    height: 155,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",

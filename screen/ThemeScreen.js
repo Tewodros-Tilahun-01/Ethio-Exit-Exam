@@ -9,11 +9,8 @@ const ThemeScreen = () => {
     <View
       style={[styles.container, { backgroundColor: theme.backgroundColor3 }]}
     >
-      <Text style={[styles.text, { color: theme.textColor }]}>
-        Select Theme
-      </Text>
       <Button
-        title="Toggle Theme"
+        title="Change Theme"
         onPress={toggleTheme}
         color={theme.buttonColor}
       />
@@ -26,10 +23,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-  },
-  text: {
-    fontSize: 18,
-    marginBottom: 20,
   },
 });
 

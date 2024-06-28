@@ -38,11 +38,13 @@ const HomeScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#5A639C",
   },
   mainSection: {
     flex: 2,
-    backgroundColor: "#fff",
+
+    borderColor: "gray",
+    borderWidth: 1,
+    elevation: 4,
   },
 });
 export default HomeScreen;

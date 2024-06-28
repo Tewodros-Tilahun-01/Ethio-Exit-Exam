@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { useContext } from "react";
 import { ThemeContext } from "../component/ThemeProvider";
-import { count } from "firebase/firestore";
 function QuestionScreen({ route, navigation }) {
   const { theme } = useContext(ThemeContext);
   const { questionList } = route.params;

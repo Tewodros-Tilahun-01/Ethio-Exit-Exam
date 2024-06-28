@@ -16,7 +16,7 @@ const lightTheme = {
 
 const darkTheme = {
   backgroundColor1: "#323232",
-  backgroundColor2: "#35354c",
+  backgroundColor2: "#222931",
   backgroundColor3: "#323232",
   backgroundColor4: "#212121",
   backgroundColor5: "#323232",
