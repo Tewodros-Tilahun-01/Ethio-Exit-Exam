@@ -17,7 +17,7 @@ const HomeScreen = ({ navigation }) => {
       style={[styles.container, { backgroundColor: theme.backgroundColor1 }]}
     >
       <View style={{ flex: fullView }}>{fullView === 1 && <TopSection />}</View>
-
+    
       <View
         style={[
           styles.mainSection,
