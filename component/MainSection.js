@@ -12,13 +12,13 @@ import { ThemeContext } from "../component/ThemeProvider";
 const MainSection = ({ fullscreenChange, navigation }) => {
   const [firebasemodal, setFirebaseModal] = useState(null);
   const { theme } = useContext(ThemeContext);
-  // useEffect(() => {
-  //   const mm = async () => {
-  //     res = await readData();
-  //     setFirebaseModal(res);
-  //   };
-  //   mm();
-  // }, []);
+  useEffect(() => {
+    const mm = async () => {
+      res = await readData();
+      setFirebaseModal(res);
+    };
+    mm();
+  }, []);
   console.log(firebasemodal);
   let modal = firebasemodal || datamodel;
   return (
