@@ -1,35 +1,30 @@
 import React from 'react';
-import { View, Text, StyleSheet, Linking } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { StyleSheet, Text, View, TouchableOpacity, Linking } from 'react-native';
 
-const SupportUsScreen = () => {
+const SupportUsSceen = () => {
+  const openLink = (url) => {
+    Linking.openURL(url).catch((err) => console.error("Failed to open URL:", err));
+  };
+
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>CONTACT US</Text>
-      <View style={styles.contactItem}>
-        <Icon name="phone" size={20} color="#000" />
-        <Text style={styles.contactText} onPress={() => Linking.openURL('tel:+1234567890')}>
-          +123-456-7890
-        </Text>
-      </View>
-      <View style={styles.contactItem}>
-        <Icon name="globe" size={20} color="#000" />
-        <Text style={styles.contactText} onPress={() => Linking.openURL('https://www.reallygreatsite.com')}>
-          www.reallygreatsite.com
-        </Text>
-      </View>
-      <View style={styles.contactItem}>
-        <Icon name="envelope" size={20} color="#000" />
-        <Text style={styles.contactText} onPress={() => Linking.openURL('mailto:hello@reallygreatsite.com')}>
-          hello@reallygreatsite.com
-        </Text>
-      </View>
-      <View style={styles.contactItem}>
-        <Icon name="map-marker" size={20} color="#000" />
-        <Text style={styles.contactText}>
-          123 Anywhere St., Any City
-        </Text>
-      </View>
+      <Text style={styles.title}>Support Us</Text>
+      <Text style={styles.description}>Your support helps us to keep going and growing. Choose a platform below to make a donation:</Text>
+      <TouchableOpacity style={styles.button} onPress={() => openLink('https://www.buymeacoffee.com/yourusername')}>
+        <Text style={styles.buttonText}>Buy Me a Coffee</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => openLink('https://fundrazr.com/yourcampaign')}>
+        <Text style={styles.buttonText}>FundRazr</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => openLink('https://www.gofundme.com/f/yourcampaign')}>
+        <Text style={styles.buttonText}>GoFundMe</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => openLink('https://www.paypal.com/paypalme/yourusername')}>
+        <Text style={styles.buttonText}>PayPal Fundraisers</Text>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.button} onPress={() => openLink('https://ko-fi.com/yourusername')}>
+        <Text style={styles.buttonText}>Ko-fi</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -39,25 +34,33 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f0f4f8',
     padding: 20,
+    backgroundColor: '#fff',
   },
-  header: {
+  title: {
     fontSize: 24,
     fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  description: {
+    fontSize: 16,
+    textAlign: 'center',
     marginBottom: 20,
   },
-  contactItem: {
-    flexDirection: 'row',
+  button: {
+    backgroundColor: '#007bff',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+    marginVertical: 10,
+    width: '80%',
     alignItems: 'center',
-    marginBottom: 15,
   },
-  contactText: {
-    marginLeft: 10,
+  buttonText: {
+    color: '#fff',
     fontSize: 16,
-    color: '#0000ff',
-    textDecorationLine: 'underline',
   },
 });
 
-export default SupportUsScreen;
+export default SupportUsSceen;
+

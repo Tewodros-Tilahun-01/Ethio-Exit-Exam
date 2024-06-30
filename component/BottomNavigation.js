@@ -20,7 +20,34 @@ function BottomNavigation() {
         backgroundColor={theme.backgroundColor1}
       />
       <NavigationContainer>
-        <Tab.Navigator screenOptions={styles.tabStyle}>
+        <Tab.Navigator screenOptions={{
+  activeTintColor: 'white',
+ inactiveTintColor: '#d9d9d9',
+ tabBarActiveBackgroundColor:theme.backgroundColor1,
+ tabBarStyle: {
+   height: 60,
+   backgroundColor:theme.backgroundColor1,
+  textAlign:"center",
+   marginHorizontal: "17%",
+   paddingHorizontal: 20,
+   borderRadius: 30,
+   position: "absolute",
+   bottom: 14,
+   elevation:0,
+   
+
+ },
+ tabBarItemStyle: {
+   paddingTop: 3,
+   paddingBottom: 5,
+   borderRadius: 10,
+   marginHorizontal: "10%",
+ },
+ tabBarLabelStyle: {
+   fontSize: 12,
+ },
+          
+        }}>
           <Tab.Screen
             name="Home "
             component={HomeStack}
@@ -58,28 +85,3 @@ function BottomNavigation() {
 }
 export default BottomNavigation;
 
-const styles = {
-  tabStyle: {
-    tabBarActiveTintColor: "#000",
-    tabBarActiveBackgroundColor: "#f4f4f4",
-    tabBarStyle: {
-      height: 60,
-      elevation: 4,
-      marginHorizontal: "17%",
-      paddingHorizontal: 20,
-      borderRadius: 30,
-      position: "absolute",
-      bottom: 14,
-      elevation: 5,
-    },
-    tabBarItemStyle: {
-      paddingTop: 3,
-      paddingBottom: 5,
-      borderRadius: 10,
-      marginHorizontal: "10%",
-    },
-    tabBarLabelStyle: {
-      fontSize: 12,
-    },
-  },
-};

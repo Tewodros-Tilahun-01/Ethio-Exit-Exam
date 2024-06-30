@@ -8,23 +8,39 @@ const lightTheme = {
   backgroundColor4: "#f1eeeb",
   backgroundColor5: "#EDEAFF",
   backgroundColor6: "#fff",
-
+  
   textColor: "#000000",
   buttonColor: "#1E90FF",
   buttonTextColor: "#ffffff",
+
+
+
 };
 
 const darkTheme = {
-  backgroundColor1: "#323232",
-  backgroundColor2: "#222931",
-  backgroundColor3: "#323232",
-  backgroundColor4: "#212121",
-  backgroundColor5: "#323232",
-  backgroundColor6: "#EDEAFF",
+  // backgroundColor1: "#323232",
+  // backgroundColor2: "#222931",
+  // backgroundColor3: "#323232",
+  // backgroundColor4: "#212121",
+  // backgroundColor5: "#323232",
+  // backgroundColor6: "#EDEAFF",
+
+  // textColor: "#ffffff",
+  // buttonColor: "#1E90FF",
+  // buttonTextColor: "#000000",
+
+
+  backgroundColor1: "#1F1B24",
+  backgroundColor2: "#D3D9D4",
+  backgroundColor3: "#1F1B24",
+  backgroundColor4: "#121212",
+  backgroundColor5: "#EDEAFF",
+  backgroundColor6: "#121212",
 
   textColor: "#ffffff",
   buttonColor: "#1E90FF",
   buttonTextColor: "#000000",
+
 };
 
 export const ThemeContext = createContext();
@@ -45,3 +61,4 @@ const ThemeProvider = ({ children }) => {
   );
 };
 export default ThemeProvider;
+
