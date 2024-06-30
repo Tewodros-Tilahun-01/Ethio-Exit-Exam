@@ -22,9 +22,9 @@ function BottomNavigation() {
       <NavigationContainer>
         <Tab.Navigator
           screenOptions={{
-            activeTintColor: "white",
-            inactiveTintColor: "#d9d9d9",
-            tabBarActiveBackgroundColor: theme.backgroundColor3,
+            tabBarInactiveTintColor: "gray",
+            tabBarActiveTintColor: "#fff",
+
             tabBarStyle: {
               height: 60,
               backgroundColor: theme.backgroundColor1,
@@ -44,8 +44,8 @@ function BottomNavigation() {
               marginHorizontal: "10%",
             },
             tabBarLabelStyle: {
-              fontSize: 12,
-              // color: "#565656",
+              fontSize: 14,
+             
             },
           }}
         >

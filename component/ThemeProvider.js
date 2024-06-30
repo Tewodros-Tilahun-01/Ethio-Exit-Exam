@@ -6,7 +6,7 @@ const lightTheme = {
   backgroundColor2: "#ffffff",
   backgroundColor3: "#ffffff",
   backgroundColor4: "#f1eeeb",
-  backgroundColor5: "#EDEAFF",
+  backgroundColor5: "#EDEAFF", 
   backgroundColor6: "#fff",
   
   textColor: "#000000",
