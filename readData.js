@@ -1,5 +1,5 @@
 import db from "./firebase";
-import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { collection } from "firebase/firestore";
 import { getDocs } from "firebase/firestore";
 export default async function readData() {
   try {

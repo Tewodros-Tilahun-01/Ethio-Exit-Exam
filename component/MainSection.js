@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import { MasonryFlashList } from "@shopify/flash-list";
 import Card from "./Card";
 
@@ -11,16 +17,23 @@ import { ThemeContext } from "../component/ThemeProvider";
 
 const MainSection = ({ fullscreenChange, navigation }) => {
   const [firebasemodal, setFirebaseModal] = useState(null);
+  const [isError, setError] = useState(false);
   const { theme } = useContext(ThemeContext);
   useEffect(() => {
     const mm = async () => {
-      res = await readData();
-      setFirebaseModal(res);
+      try {
+        res = await readData();
+        setFirebaseModal(res);
+      } catch (error) {
+        setError(true);
+      }
     };
     mm();
   }, []);
   console.log(firebasemodal);
-  let modal = firebasemodal || datamodel;
+  let modal = firebasemodal;
+
+  // let modal = firebasemodal || datamodel;
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -29,42 +42,32 @@ const MainSection = ({ fullscreenChange, navigation }) => {
           <Text style={styles.button}>VIEW ALL</Text>
         </TouchableOpacity>
       </View>
-
-      <View style={styles.listContainer}>
-        {!modal && (
-          <Text
-            style={{
-              position: "absolute",
-              bottom: 100,
-              right: 100,
-              left: 100,
-              backgroundColor: "red",
-              zIndex: 100,
-              padding: 10,
-              borderRadius: 10,
-              borderWidth: 0.3,
-              textAlign: "center",
-              color: "#fff",
-            }}
-          >
-            no internet
-          </Text>
-        )}
-
-        <MasonryFlashList
-          data={modal}
-          numColumns={2}
-          renderItem={({ item }) => (
-            <Card
-              name={item.dept}
-              courses={item.courses}
-              questionCollectionList={item.questionCollectionList}
-              navigation={navigation}
-            ></Card>
-          )}
-          estimatedItemSize={200}
-        ></MasonryFlashList>
-      </View>
+      {isError && <Text>there is an error</Text>}
+      {!modal ? (
+        <ActivityIndicator
+          size="large"
+          color="#00ff00"
+          style={styles.spinner}
+        />
+      ) : (
+        <>
+          <View style={styles.listContainer}>
+            <MasonryFlashList
+              data={modal}
+              numColumns={2}
+              renderItem={({ item }) => (
+                <Card
+                  name={item.dept}
+                  courses={item.courses}
+                  questionCollectionList={item.questionCollectionList}
+                  navigation={navigation}
+                ></Card>
+              )}
+              estimatedItemSize={200}
+            ></MasonryFlashList>
+          </View>
+        </>
+      )}
     </View>
   );
 };
@@ -84,6 +87,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 23,
   },
+  spinner: { flex: 1, alignItems: "center", justifyContent: "center" },
   listContainer: {
     width: "100%",
     height: "100%",
