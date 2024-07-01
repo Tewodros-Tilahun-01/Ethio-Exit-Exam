@@ -14,7 +14,7 @@ const Card = ({ name, navigation, questionCollectionList, courses }) => {
     >
       <View style={styles.button}>
         <View>
-          <Image source={require("../assets/favicon.png")} />
+          <Image source={require(`../assets/book.png`)} />
         </View>
         <View style={{ padding: 10, paddingTop: 20 }}>
           <Text style={{ color: "#000", fontSize: 14 }}>{name}</Text>
