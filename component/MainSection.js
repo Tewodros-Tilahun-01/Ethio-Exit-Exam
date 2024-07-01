@@ -30,10 +30,8 @@ const MainSection = ({ fullscreenChange, navigation }) => {
     };
     mm();
   }, []);
-  console.log(firebasemodal);
-  let modal = firebasemodal;
 
-  // let modal = firebasemodal || datamodel;
+  let modal = firebasemodal || datamodel;
   return (
     <View style={styles.container}>
       <View style={styles.header}>

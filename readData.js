@@ -11,7 +11,7 @@ export default async function readData() {
       list.push(doc.data());
     });
     console.log("data readd");
-    return list;
+    return list.length == 0 ? null : list;
   } catch {
     console.log("something went wrong");
   }
