@@ -17,21 +17,30 @@ import { ThemeContext } from "../component/ThemeProvider";
 
 const MainSection = ({ fullscreenChange, navigation }) => {
   const [firebasemodal, setFirebaseModal] = useState(null);
-  const [isError, setError] = useState(false);
   const { theme } = useContext(ThemeContext);
-  // useEffect(() => {
-  //   const mm = async () => {
-  //     try {
-  //       res = await readData();
-  //       setFirebaseModal(res);
-  //     } catch (error) {
-  //       setError(true);
-  //     }
-  //   };
-  //   mm();
-  // }, []);
+  const [modal, setModal] = useState(null);
 
-  let modal = firebasemodal || datamodel;
+  useEffect(() => {
+    const mm = async () => {
+      try {
+        res = await readData();
+        setFirebaseModal(res);
+      } catch (error) {
+        setError(true);
+      }
+    };
+    mm();
+    setTimeout(() => {
+      if (modal == null) {
+        setModal(datamodel);
+      }
+    }, 6000);
+  }, []);
+
+  useEffect(() => {
+    setModal(firebasemodal);
+  }, [firebasemodal]);
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -40,7 +49,7 @@ const MainSection = ({ fullscreenChange, navigation }) => {
           <Text style={styles.button}>VIEW ALL</Text>
         </TouchableOpacity>
       </View>
-      {isError && <Text>there is an error</Text>}
+
       {!modal ? (
         <ActivityIndicator
           size="large"
