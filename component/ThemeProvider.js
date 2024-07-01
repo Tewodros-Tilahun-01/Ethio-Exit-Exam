@@ -1,34 +1,30 @@
 import React, { createContext, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+async function getTheme() {
+  const jsonValue = await AsyncStorage.getItem("theme-key");
+  return jsonValue != null ? jsonValue : "lightTheme";
+}
 
+async function setItem(value) {
+  await AsyncStorage.setItem("theme-key", value);
+}
 
 const lightTheme = {
+  name: "lightTheme",
   backgroundColor1: "#5A639C",
   backgroundColor2: "#ffffff",
   backgroundColor3: "#ffffff",
   backgroundColor4: "#f1eeeb",
-  backgroundColor5: "#EDEAFF", 
+  backgroundColor5: "#EDEAFF",
   backgroundColor6: "#fff",
-  
+
   textColor: "#000000",
   buttonColor: "#1E90FF",
   buttonTextColor: "#ffffff",
-
-
-
 };
 
 const darkTheme = {
-  // backgroundColor1: "#323232",
-  // backgroundColor2: "#222931",
-  // backgroundColor3: "#323232",
-  // backgroundColor4: "#212121",
-  // backgroundColor5: "#323232",
-  // backgroundColor6: "#EDEAFF",
-
-  // textColor: "#ffffff",
-  // buttonColor: "#1E90FF",
-  // buttonTextColor: "#000000",
-
+  name: "darkTheme",
 
   backgroundColor1: "#1F1B24",
   backgroundColor2: "#D3D9D4",
@@ -40,17 +36,20 @@ const darkTheme = {
   textColor: "#ffffff",
   buttonColor: "#1E90FF",
   buttonTextColor: "#000000",
-
 };
-
 export const ThemeContext = createContext();
 
 const ThemeProvider = ({ children }) => {
-  
+  async function getThemeFromStorage() {
+    let val = await getTheme();
+    setTheme(val == "lightTheme" ? lightTheme : darkTheme);
+  }
+  getThemeFromStorage();
 
-  const [theme, setTheme] = useState(lightTheme);
+  const [theme, setTheme] = useState(0);
 
   const toggleTheme = () => {
+    setItem(theme.name === "lightTheme" ? "darkTheme" : "lightTheme");
     setTheme(theme === lightTheme ? darkTheme : lightTheme);
   };
 
@@ -61,4 +60,3 @@ const ThemeProvider = ({ children }) => {
   );
 };
 export default ThemeProvider;
-

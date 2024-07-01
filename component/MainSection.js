@@ -19,17 +19,17 @@ const MainSection = ({ fullscreenChange, navigation }) => {
   const [firebasemodal, setFirebaseModal] = useState(null);
   const [isError, setError] = useState(false);
   const { theme } = useContext(ThemeContext);
-  useEffect(() => {
-    const mm = async () => {
-      try {
-        res = await readData();
-        setFirebaseModal(res);
-      } catch (error) {
-        setError(true);
-      }
-    };
-    mm();
-  }, []);
+  // useEffect(() => {
+  //   const mm = async () => {
+  //     try {
+  //       res = await readData();
+  //       setFirebaseModal(res);
+  //     } catch (error) {
+  //       setError(true);
+  //     }
+  //   };
+  //   mm();
+  // }, []);
 
   let modal = firebasemodal || datamodel;
   return (

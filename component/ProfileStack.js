@@ -1,14 +1,12 @@
 import React from "react";
 import SettingsScreen from "../screen/SettingsScreen";
 
-import ChangePasswordScreen from "../screen/ChangePasswordScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import NotificationScreen from "../screen/NotificationScreen";
 import SupportUsScreen from "../screen/SupportUsScreen";
 import HelpScreen from "../screen/HelpScreen";
 import ContactUsScreen from "../screen/ContactUsScreen";
 import TermsAndConditionsScreen from "../screen/TermsAndConditionsScreen";
-import ThemeScreen from "../screen/ThemeScreen";
 
 import { useContext } from "react";
 import { ThemeContext } from "../component/ThemeProvider";
@@ -29,15 +27,6 @@ export default function ProfileStack() {
         }}
       />
 
-      <Stack.Screen
-        name="ChangePasswordScreen"
-        component={ChangePasswordScreen}
-        options={{
-          headerStyle: { backgroundColor: theme.backgroundColor1 },
-          headerTintColor: "#fff",
-          title: "Change Password",
-        }}
-      />
       <Stack.Screen
         name="NotificationScreen"
         component={NotificationScreen}
@@ -81,16 +70,6 @@ export default function ProfileStack() {
           headerStyle: { backgroundColor: theme.backgroundColor1 },
           headerTintColor: "#fff",
           title: "Terms and Conditions",
-        }}
-      />
-
-      <Stack.Screen
-        name="ThemeScreen"
-        component={ThemeScreen}
-        options={{
-          headerStyle: { backgroundColor: theme.backgroundColor1 },
-          headerTintColor: "#fff",
-          title: "Select Theme",
         }}
       />
     </Stack.Navigator>

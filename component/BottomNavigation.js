@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileStack from "./ProfileStack";
@@ -13,6 +13,7 @@ const Tab = createBottomTabNavigator();
 
 function BottomNavigation() {
   const { theme } = useContext(ThemeContext);
+
   return (
     <SafeAreaProvider>
       <StatusBar
@@ -45,7 +46,6 @@ function BottomNavigation() {
             },
             tabBarLabelStyle: {
               fontSize: 14,
-             
             },
           }}
         >

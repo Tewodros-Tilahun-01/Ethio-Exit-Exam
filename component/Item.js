@@ -46,8 +46,7 @@ const Item = ({ Items, actions, title }) => {
                 }
                 value={theme.backgroundColor1 !== "#5A639C"}
                 onValueChange={toggleTheme}
-                style={{ transform: [{ scaleX: 1.2 }, { scaleY: 1.3}] }}
-                
+                style={{ transform: [{ scaleX: 1.2 }, { scaleY: 1.3 }] }}
               />
             )}
           </View>
