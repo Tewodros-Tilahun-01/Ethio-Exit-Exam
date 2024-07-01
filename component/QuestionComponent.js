@@ -96,7 +96,7 @@ const styles = StyleSheet.create({
   questionNumber: { color: "#fff", fontSize: 28 },
   questionContainer: {
     backgroundColor: "#455e50",
-    paddingVertical: 50,
+    paddingVertical: 37,
     paddingHorizontal: 10,
     borderRadius: 10,
     marginBottom: 20,

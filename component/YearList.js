@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   description: {
-    fontSize: 14,
+    fontSize: 12,
     color: "#000",
   },
 });
